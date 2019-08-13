@@ -1,0 +1,15 @@
+---
+- name: Download Scons
+  unarchive:
+    src: '{{ scons_url }}'
+    dest: /tmp
+    remote_src: true
+    list_files: true
+  register: archive_contents
+
+- name: Install Scons
+  shell: python setup.py install
+  args:
+    chdir: /tmp/{{ archive_contents.files[0] }}
+    creates: /usr/local/bin/scons
+
