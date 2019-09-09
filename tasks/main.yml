@@ -12,4 +12,4 @@
   args:
     chdir: /tmp/{{ archive_contents.files[0] }}
     creates: /usr/local/bin/scons
-
+  become: true
