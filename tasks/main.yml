@@ -1,5 +1,6 @@
 ---
 - name: Download Scons
+  become: true
   unarchive:
     src: '{{ scons_url }}'
     dest: /tmp
